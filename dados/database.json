@@ -1,0 +1,191 @@
+{
+    "users": [
+        {
+            "acc_id": "2698",
+            "password": "4567",
+            "name": "Ayrton",
+            "balance": 4789.349999999999,
+            "loan": 0,
+            "history": [
+                {
+                    "type": "DEP",
+                    "value": 500,
+                    "extra_info": ""
+                },
+                {
+                    "type": "ENV",
+                    "value": 200,
+                    "extra_info": "para Bruna (8871)"
+                },
+                {
+                    "type": "ENV",
+                    "value": 150.9,
+                    "extra_info": "para Leonardo (7679)"
+                },
+                {
+                    "type": "SAQ",
+                    "value": 360,
+                    "extra_info": ""
+                },
+                {
+                    "type": "SAQ",
+                    "value": 100,
+                    "extra_info": ""
+                },
+                {
+                    "type": "SAQ",
+                    "value": 150,
+                    "extra_info": "em espécie"
+                },
+                {
+                    "type": "SAQ",
+                    "value": 185,
+                    "extra_info": "em espécie"
+                },
+                {
+                    "type": "DEP",
+                    "value": 580,
+                    "extra_info": ""
+                },
+                {
+                    "type": "SAQ",
+                    "value": 280,
+                    "extra_info": "em espécie"
+                },
+                {
+                    "type": "DEP",
+                    "value": 1580,
+                    "extra_info": ""
+                },
+                {
+                    "type": "SAQ",
+                    "value": 185,
+                    "extra_info": "em espécie"
+                },
+                {
+                    "type": "PAG",
+                    "value": 98.9,
+                    "extra_info": "para Comgás"
+                },
+                {
+                    "type": "PAG",
+                    "value": 54.5,
+                    "extra_info": "para Tim"
+                },
+                {
+                    "type": "SAQ",
+                    "value": 125,
+                    "extra_info": "em espécie"
+                },
+                {
+                    "type": "SAQ",
+                    "value": 75,
+                    "extra_info": "em espécie"
+                },
+                {
+                    "type": "DEP",
+                    "value": 400,
+                    "extra_info": ""
+                },
+                {
+                    "type": "REC",
+                    "value": 1000.77,
+                    "extra_info": "de Monica (3763)"
+                },
+                {
+                    "type": "PAG",
+                    "value": 50.6,
+                    "extra_info": "para Claro"
+                },
+                {
+                    "type": "ENV",
+                    "value": 500,
+                    "extra_info": "para Bruna (8871)"
+                },
+                {
+                    "type": "DEP",
+                    "value": 1000,
+                    "extra_info": ""
+                },
+                {
+                    "type": "SAQ",
+                    "value": 220,
+                    "extra_info": "em espécie"
+                }
+            ]
+        },
+        {
+            "acc_id": "8871",
+            "password": "1234",
+            "name": "Bruna",
+            "balance": 1797.3,
+            "loan": 0,
+            "history": [
+                {
+                    "type": "REC",
+                    "value": 200,
+                    "extra_info": "de Ayrton (2698)"
+                },
+                {
+                    "type": "REC",
+                    "value": 500,
+                    "extra_info": "de Ayrton (2698)"
+                }
+            ]
+        },
+        {
+            "acc_id": "7679",
+            "password": "1234",
+            "name": "Leonardo",
+            "balance": 1151.65,
+            "loan": 0,
+            "history": [
+                {
+                    "type": "REC",
+                    "value": 150.9,
+                    "extra_info": "de Ayrton (2698)"
+                },
+                {
+                    "type": "DEP",
+                    "value": 1000.75,
+                    "extra_info": ""
+                }
+            ]
+        },
+        {
+            "acc_id": "3763",
+            "password": "1234",
+            "name": "Monica",
+            "balance": 3681.03,
+            "loan": 0,
+            "history": [
+                {
+                    "type": "DEP",
+                    "value": 5000.5,
+                    "extra_info": ""
+                },
+                {
+                    "type": "PAG",
+                    "value": 88.7,
+                    "extra_info": "para Tim"
+                },
+                {
+                    "type": "ENV",
+                    "value": 1000.77,
+                    "extra_info": "para Ayrton (2698)"
+                },
+                {
+                    "type": "SAQ",
+                    "value": 330,
+                    "extra_info": "em espécie"
+                },
+                {
+                    "type": "DEP",
+                    "value": 100,
+                    "extra_info": ""
+                }
+            ]
+        }
+    ],
+    "managers": []
+}
