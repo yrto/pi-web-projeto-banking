@@ -24,8 +24,8 @@ const ask_something = (min_digits, max_digits, question) => {
 const pause = pause_message => input.question(pause_message)
 
 const wait = (ms) => {
-    var start = new Date().getTime();
-    var end = start;
+    let start = new Date().getTime();
+    let end = start;
     while (end < start + ms) {
         end = new Date().getTime();
     }
@@ -40,6 +40,7 @@ const menu_principal = () => {
     console.log("1. Entrar")
     console.log("2. Abrir conta")
     console.log("0. Sair")
+    selecao_principal = ask_something(1, 1, `\nEscolha uma opção: `)
 }
 
 let selecao_conta_logada
@@ -54,8 +55,10 @@ const menu_conta_logada = (user) => {
     console.log("4. Extrato")
     console.log("5. Pagar boleto")
     console.log("")
+    console.log("8. Encerrar conta")
     console.log("9. Alterar senha")
     console.log("0. Sair")
+    selecao_conta_logada = ask_something(1, 1, `\nEscolha uma opção: `)
 }
 
 // funções principais
@@ -93,7 +96,7 @@ const print_money = amount => {
     let notas_disponiveis = [100, 50, 20, 10, 5]
     let saque_total = 0
     console.log(`\n-> Contando notas...\n`)
-    wait(2500);
+    wait(4000);
     for (let nota of notas_disponiveis) {
         while (amount >= nota) {
             amount -= nota
@@ -115,7 +118,7 @@ const user_deposito = user => {
 
 const user_transferencia = user => {
     let current_tranfer_id = ask_something(4, 4, `\nPara qual conta Let's Bank gostaria de transferir? (4 dígitos): `)
-    for (var i = 0; i < users_data.length; ++i) {
+    for (let i = 0; i < users_data.length; ++i) {
         if (users_data[i].acc_id === current_tranfer_id) {
             current_tranfer_amount = input.questionFloat(`Quanto gostaria de transferir para ${users_data[i].name} (${current_tranfer_id})? R$ `)
             if (user.balance - current_tranfer_amount > 0) {
@@ -156,6 +159,19 @@ const user_alterar_senha = user => {
     }
 }
 
+const user_encerrar_conta = (user, index) => {
+    header("Encerramento de conta")
+    let current_password = ask_something(4, 4, `\nDigite sua senha (4 dígitos): `)
+    if (user.password === current_password) {
+        users_data.splice(index, 1)
+        update_database()
+        pause(`\nConta encerrada com sucesso ): `)
+        selecao_conta_logada = 0
+    } else {
+        pause(`\nSenha incorreta... `)
+    }
+}
+
 function login_user() {
 
     header("Acesse sua conta")
@@ -165,13 +181,12 @@ function login_user() {
 
     // do { } while (users_data.some(user => user.acc_id !== current_acc_id))
 
-    for (var i = 0; i < users_data.length; ++i) {
+    for (let i = 0; i < users_data.length; i++) {
         if (users_data[i].acc_id === current_acc_id) {
             if (users_data[i].password === current_password) {
                 do {
 
                     menu_conta_logada(users_data[i])
-                    selecao_conta_logada = ask_something(1, 1, `\nEscolha uma opção: `)
 
                     if (selecao_conta_logada == "1") {
                         user_saque(users_data[i])
@@ -193,6 +208,10 @@ function login_user() {
                         user_pagamento(users_data[i])
                     }
 
+                    else if (selecao_conta_logada == "8") {
+                        user_encerrar_conta(users_data[i], i)
+                    }
+
                     else if (selecao_conta_logada == "9") {
                         user_alterar_senha(users_data[i])
                     }
@@ -209,10 +228,11 @@ function make_user() {
     let name = ask_something(1, 30, `\nQual o seu nome? `)
     let password = ask_something(4, 4, `Digite uma senha de 4 dígitos: `)
 
+    let acc_id = new_random_id()
     while (users_data.some(user => user.acc_id === acc_id)) { acc_id = new_random_id() }
 
     let new_user = {
-        acc_id: new_random_id(),
+        acc_id: acc_id,
         password: password,
         name: name,
         balance: 0.00,
@@ -232,7 +252,6 @@ function main() {
     do {
 
         menu_principal()
-        selecao_principal = ask_something(1, 1, `\nEscolha uma opção: `)
 
         if (selecao_principal == "1") {
             login_user()
